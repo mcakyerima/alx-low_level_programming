@@ -1,2 +1,2 @@
 #!/bin/bas
-gcc $CFILE > CFILE.o
+gcc $CFILE > $CFILE.o
