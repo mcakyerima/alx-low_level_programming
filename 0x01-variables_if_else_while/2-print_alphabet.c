@@ -6,7 +6,8 @@
 /**
  * main - Entry point
  *
- * Description: Prints the alphabet in lowercase, followed by a new li * using the putchar function.
+ * Description: Prints the alphabet in lowercase,
+ * followed by a new li * using the putchar function.
  *
  * Return: Always 0 (Success)
  */
