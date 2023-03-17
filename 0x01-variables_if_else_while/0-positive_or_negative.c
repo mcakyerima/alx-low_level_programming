@@ -6,8 +6,8 @@ int main(void)
 {
 int n;
 srand(time(0));
-n = rand() - RAMD_MAX / 2;
+n = rand() - RAND_MAX / 2;
 const char* str = (n > 1) ? "positive" : "negative";
-printf("n is %s\n", str);
+printf("%d is %s\n",n, str);
 return (0);
 }
