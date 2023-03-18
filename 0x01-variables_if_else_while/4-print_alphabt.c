@@ -19,7 +19,8 @@ while (letter <= 'z')
 if (letter != 'e' && letter != 'q')
 {
 putchar(letter);
-letter++
+}
+letter++;
 }
 putchar('\n');
 
