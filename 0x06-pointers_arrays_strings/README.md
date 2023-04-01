@@ -1,1 +1,1 @@
-**More Pointers, Arrays and Strings**
+## Pointers, Arrays, Strings Task 0x06
