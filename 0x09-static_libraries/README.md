@@ -67,6 +67,37 @@ This command tells the linker to look for `libmylib.a` in the current directory 
 
 You can now run `myprogram` by typing `./myprogram` at the command prompt.
 
+## Dynamic Libraries
+
+Dynamic libraries are similar to static libraries, except they are not copied into the executable program. Instead, they are loaded into memory at runtime and shared among multiple processes. This means that multiple programs can use the same dynamic library, reducing the amount of disk space required by the programs and making it easier to update the library without recompiling all the programs that use it.
+
+To create a dynamic library, we can use the `-shared` flag with `gcc`:
+
+
+```
+gcc -shared -o libmylib.so file1.o file2.o
+```
+
+This creates a shared object file `libmylib.so` from the object files `file1.o` and `file2.o` We can then link our program to this shared library by including it during compilation:
+
+```
+gcc -o myprogram myprogram.c -L. -lmylib
+```
+
+The `-L` flag tells the linker to look for the shared library file in the current directory, and the `-lmylib` flag tells it to link to a library named libmylib.so.
+
+To run the program, we need to tell the system where to find the shared library by setting the `LD_LIBRARY_PATH` environment variable:
+
+```
+export LD_LIBRARY_PATH=.
+./myprogram
+```
+
+This tells the system to look for shared libraries in the current directory.
+
+**Dynamic libraries** have the advantage of being smaller in size and more flexible than static libraries, but they have a slightly slower startup time due to the need to load the library into memory.
+
+
 ## Files
 
 The following files are included in this repository:
