@@ -30,7 +30,10 @@ The **nm** command can be used to view the contents of a static library. This co
 When you compile your program, you specify the static library to link with using the ``-l`` flag followed by the name of the library file (without the .a extension). For example, if your library is named **libmylib.a**, you would link it into your program using the following command:
 
 
-```gcc -o myprogram myprogram.o -L. -lmylib```
+```
+gcc -o myprogram myprogram.o -L. -lmylib
+
+```
 
 
 This command tells the linker to look for ``libmylib.a`` in the current directory **(-L.)** and to link it **(-lmylib)** with **myprogram.o** to create an executable named **myprogram**.
@@ -41,19 +44,28 @@ This command tells the linker to look for ``libmylib.a`` in the current director
 To create a static library, you first need to compile the source files into object files. You can do this using the ``gcc`` command with the ``-c`` flag. For example, to compile ``foo.c`` into an object file named foo.o, you would use the following command:
 
 
-```gcc -c foo.c -o foo.o```
+```
+gcc -c foo.c -o foo.o
+
+```
 
 Once you have compiled all of your source files into object files, you can combine them into a single library using the ar command. For example, to create a library named `libmylib.a` from the object files `foo.o` and `bar.o`, you would use the following command:
 
 
-```ar rcs libmylib.a foo.o bar.o```
+```
+ar rcs libmylib.a foo.o bar.o
+
+```
 
 This command creates a static library named `libmylib.a` and adds the object files `foo.o` and `bar.o` to it.
 
 After creating a library, you should index it using the ``ranlib`` command. This command creates a table of contents for the library, which enables the linker to quickly find the desired functions when linking the program. To index libmylib.a, you would use the following command:
 
 
-```ranlib libmylib.a```
+```
+ranlib libmylib.a
+
+```
 
 
 ## Using a Static Library
@@ -61,9 +73,12 @@ After creating a library, you should index it using the ``ranlib`` command. This
 To use a static library, you need to link it with your program at compile time. To do this, you specify the library name using the `-l` flag followed by the name of the library file (without the `.a` extension). For example, to link `myprogram.o` with `libmylib.a`, you would use the following command:
 
 
-```gcc -o myprogram myprogram.o -L. -lmylib```
+```
+gcc -o myprogram myprogram.o -L. -lmylib
 
-This command tells the linker to look for `libmylib.a` in the current directory `(-L.)` and to link it `(-lmylib)` with `myprogram.o` to create an executable named `myprogram`.
+```
+
+This command tells the linker to look for `libmylib.a` in the current directory (`-L.`) and to link it (`-lmylib`) with ``myprogram.o` to create an executable named `myprogram`
 
 You can now run `myprogram` by typing `./myprogram` at the command prompt.
 
