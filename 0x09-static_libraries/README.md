@@ -32,7 +32,6 @@ When you compile your program, you specify the static library to link with using
 
 ```
 gcc -o myprogram myprogram.o -L. -lmylib
-
 ```
 
 
@@ -46,7 +45,6 @@ To create a static library, you first need to compile the source files into obje
 
 ```
 gcc -c foo.c -o foo.o
-
 ```
 
 Once you have compiled all of your source files into object files, you can combine them into a single library using the ar command. For example, to create a library named `libmylib.a` from the object files `foo.o` and `bar.o`, you would use the following command:
@@ -54,7 +52,6 @@ Once you have compiled all of your source files into object files, you can combi
 
 ```
 ar rcs libmylib.a foo.o bar.o
-
 ```
 
 This command creates a static library named `libmylib.a` and adds the object files `foo.o` and `bar.o` to it.
@@ -64,7 +61,6 @@ After creating a library, you should index it using the ``ranlib`` command. This
 
 ```
 ranlib libmylib.a
-
 ```
 
 
@@ -75,7 +71,6 @@ To use a static library, you need to link it with your program at compile time. 
 
 ```
 gcc -o myprogram myprogram.o -L. -lmylib
-
 ```
 
 This command tells the linker to look for `libmylib.a` in the current directory (`-L.`) and to link it (`-lmylib`) with ``myprogram.o` to create an executable named `myprogram`
