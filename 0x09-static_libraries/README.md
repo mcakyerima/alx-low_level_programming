@@ -1,4 +1,4 @@
-# C STATIC AND DYNAIC LIBRARIES
+# C Static and Dynamic
 
 ## Requirements
 - Language: C
@@ -19,7 +19,7 @@ The repository aims to impart knowledge of the following concepts:
 
 The following files are included in this repository:
 
-- **libmain.a**: A static library containing various functions.
+- **libmy.a**: A static library containing various functions.
 - **main.h**: A header file with function prototypes used in the library.
 - **create_static_lib.sh**: A shell script used to compile the library and create a static version.
 
