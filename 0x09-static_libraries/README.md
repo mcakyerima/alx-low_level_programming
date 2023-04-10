@@ -1,4 +1,4 @@
-# C Static and Dynamic
+# C Static and Dynamic Libraries
 
 ## Requirements
 - Language: C
