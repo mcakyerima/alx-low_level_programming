@@ -36,7 +36,7 @@ char *argstostr(int ac, char **av)
 		str[j++] = '\n'; /* Add a newline character after each argument */
 	}
 
-	str[j] = '\0'; /* Add a null terminator to the end of the string */
+	str[j-1] = '\0'; /* Add a null terminator to the end of the string */
 
 	return (str);
 }
