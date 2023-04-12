@@ -14,7 +14,7 @@
 
 char *str_concat(char *s1, char *s2)
 {
-	char *concat_str /* pointer to concatenated str */
+	char *concat_str; /* pointer to concatenated str */
 	unsigned int len1, len2; /*lengths of input */
 
 	/* Treat Null strings as empty */
