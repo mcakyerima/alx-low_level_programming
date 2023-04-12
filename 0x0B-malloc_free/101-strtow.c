@@ -1,4 +1,5 @@
 #include <stdlib.h>
+#include "main.h"
 
 /**
  * word_len - Locates the index marking the end of the
@@ -38,8 +39,8 @@ int count_words(char *str)
 
 	for (index = 0; index < len; index++)
 	{
-		/* If the current character is not a space, increment words and
-		 * move the index to the end of the current word */
+		/* If the current character is not a space, increment words and */
+		/* move the index to the end of the current word */
 		if (*(str + index) != ' ')
 		{
 			words++;
