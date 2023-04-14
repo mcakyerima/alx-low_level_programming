@@ -1,14 +1,15 @@
 /*
+ * File: 1-string_nconcat.c
+ * Author: Mohammed Abba
+ *
+ * Description:
+ * A function that concatenates two strings.
+ */
 
-    File: 1-string_nconcat.c
-    Author: Mohammed Abba
-    */
 
 #include "main.h"
 #include <stdlib.h>
-
-/**
-
+#include <stdio.h>
 
 /**
  * string_nconcat - concatenates two strings
@@ -63,4 +64,33 @@ char *string_nconcat(char *s1, char *s2, unsigned int n)
 
 	/* return pointer to concatenated string */
 	return (concat_str);
+}
+
+/**
+ * main - Entry point for testing.
+ *
+ * Return: Always 0
+ */
+int main(void)
+{
+	char *concat1, *concat2, *concat3, *concat4;
+
+	concat1 = string_nconcat("Hello ", "World", 0);
+	printf("%s\n", concat1); /* Expected output: "Hello " */
+
+	concat2 = string_nconcat(NULL, "World", 6);
+	printf("%s\n", concat2); /* Expected output: "(null)World" */
+
+	concat3 = string_nconcat("Hello ", NULL, 5);
+	printf("%s\n", concat3); /* Expected output: "Hello " */
+
+	concat4 = string_nconcat("Hello ", "World", 3);
+	printf("%s\n", concat4); /* Expected output: "Hello Wor" */
+
+	free(concat1);
+	free(concat2);
+	free(concat3);
+	free(concat4);
+
+	return (0);
 }
