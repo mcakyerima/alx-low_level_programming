@@ -1,7 +1,7 @@
-/*
- * File: 101-mul.c
- * Auth: Mohammed Abba
- */
+/**
+ * File: 101-mul
+ * Author: Mohammed Abba
+*/
 
 #include "main.h"
 #include <stdlib.h>
