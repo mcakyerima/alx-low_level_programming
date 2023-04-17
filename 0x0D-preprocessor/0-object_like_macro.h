@@ -2,12 +2,12 @@
 #define OBJECT_LIKE_MACRO_H
 
 /*
- * File: 1-pi.h
+ * File: 0-obect_like_macro.h
  * Author: Mohammed Abba
- * Description: This header file defines the macro PI as an
- *		 abbreviation for the value 3.14159265359.
+ * Header This header file defines a macro named
+ *        SIZE as an abbreviation for the token 1024.
  */
 
-#define SIZE 1024;
+#define SIZE 1024
 
-#endif /* SIZE */
+#endif /* OBJECT_LIKE_MACRO_H */
