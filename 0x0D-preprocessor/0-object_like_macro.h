@@ -1,4 +1,4 @@
-#ifndef 0-OBJECT_LIKE_MACRO_H
+#ifndef 0- OBJECT_LIKE_MACRO_H
 #define 0-OBJECT_LIKE_MACRO_H
 
 /*
@@ -8,6 +8,6 @@
  *		 abbreviation for the value 3.14159265359.
  */
 
-#define SIZE 1021;
+#define SIZE 1024;
 
 #endif /* SIZE */
