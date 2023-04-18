@@ -7,9 +7,6 @@
  * Description: Initializes a variable of type struct dog.
  */
 
-#include "dog.h"
-#include <stdlib.h>
-
 /**
  * init_dog - Initializes a variable of type struct dog.
  * @d: Dog to be initialized.
