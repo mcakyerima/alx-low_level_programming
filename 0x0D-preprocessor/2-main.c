@@ -2,7 +2,7 @@
  * File: 2-main.c
  * Author: Mohammed Abba
  * Description: This program prints the name of the file it was
- * 		compiled from, followed by a new line.
+ *	compiled from, followed by a new line.
  */
 
 #include <stdio.h>
