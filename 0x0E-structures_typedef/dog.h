@@ -4,7 +4,7 @@
 /*
  * File: dog.h
  * Author: Mohammed Abba
- * Desc: A Header file that defines a new struct type dog.
+ * Description: A Header file that defines a new struct type dog.
  */
 
 /**
@@ -18,6 +18,8 @@ struct dog
 	char *name;
 	float age;
 	char *owner;
-};
+}dog_t;
+
+void init_dog(struct dog *d, char *name, float age, char *owner);
 
 #endif
