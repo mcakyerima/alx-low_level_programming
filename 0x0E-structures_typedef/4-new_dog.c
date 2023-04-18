@@ -1,5 +1,3 @@
-refactor this code make it more descriptive but dont change the function name
-
 /*
  * File: 4-new_dog.c
  * Author: Mohammed Abba
