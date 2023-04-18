@@ -47,7 +47,7 @@ Header file that defines a new type `struct dog` with the following elements:
 - float age
 - char *owner
 ```
-## (Task 1)[https://github.com/mcakyerima/alx-low_level_programming/blob/main/0x0E-structures_typedef/1-init_dog.c]
+## [Task 1](https://github.com/mcakyerima/alx-low_level_programming/blob/main/0x0E-structures_typedef/1-init_dog.c)
 
 *1-init_dog.c*
 
@@ -56,7 +56,7 @@ C function that initializes a variable of type `struct dog`:
 ```C
 void init_dog(struct dog *d, char *name, float age, char *owner);
 ```
-## (Task 2)[https://github.com/mcakyerima/alx-low_level_programming/blob/main/0x0E-structures_typedef/2-print_dog.c]
+## [Task 2](https://github.com/mcakyerima/alx-low_level_programming/blob/main/0x0E-structures_typedef/2-print_dog.c)
 
 *2-print_dog.c*
 
@@ -67,13 +67,13 @@ void print_dog(struct dog *d);
 
 If an element of *`d`* is NULL, the function prints *(nil)* instead of the element. If *`d`* is NULL, the function prints nothing.
 
-## (Task 3)[https://github.com/mcakyerima/alx-low_level_programming/blob/main/0x0E-structures_typedef/dog.h]
+## [Task 3](https://github.com/mcakyerima/alx-low_level_programming/blob/main/0x0E-structures_typedef/dog.h)
 
 *dog.h*
 
 Header file that defines a new type `dog_t` as a new name for the type `struct dog`.
 
-## (Task 4)[https://github.com/mcakyerima/alx-low_level_programming/blob/main/0x0E-structures_typedef/4-new_dog.c]
+## [Task 4](https://github.com/mcakyerima/alx-low_level_programming/blob/main/0x0E-structures_typedef/4-new_dog.c)
 
 *4-new_dog.c*
 
@@ -84,7 +84,7 @@ dog_t *new_dog(char *name, float age, char *owner);
 
 Returns NULL if the function fails.
 
-## (Task 5)[https://github.com/mcakyerima/alx-low_level_programming/blob/main/0x0E-structures_typedef/5-free_dog.c]
+## [Task 5](https://github.com/mcakyerima/alx-low_level_programming/blob/main/0x0E-structures_typedef/5-free_dog.c)
 
 *5-free_dog.c*
 
@@ -107,4 +107,4 @@ void free_dog(dog_t *d);
 - Mohammed Abba
 
 ## License
-- (ALX)[https://www.alxafrica.com/]
+- [ALX](https://www.alxafrica.com/)
