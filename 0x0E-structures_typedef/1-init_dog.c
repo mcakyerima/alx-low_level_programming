@@ -1,3 +1,6 @@
+#include "dog.h"
+#include <stdlib.h>
+
 /*
  * File: 1-init_dog.c
  * Author: Mohammed Abba
