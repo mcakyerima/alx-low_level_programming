@@ -106,5 +106,5 @@ void free_dog(dog_t *d);
 ## Author 
 - Mohammed Abba
 
-###License
+## License
 - ALX
