@@ -4,7 +4,7 @@ This project covers the concept of preprocessor directives in C. Here, I practic
 
 ## Tasks
 
-### [Object-like Macro](https://github.com/mcakyerima/alx-low_level_programming/blob/main/0x0D-preprocessor/1-pi.h)
+### [Object-like Macro](https://github.com/mcakyerima/alx-low_level_programming/blob/main/0x0D-preprocessor/0-object_like_macro.h)
 
 The header file `0-object_like_macro.h` defines a macro named `SIZE` as an abbreviation for the token `1024`.
 
