@@ -5,7 +5,7 @@
  * Author: Mohammed Abba
  */
 
-#include "function_pointer.h"
+#include "function_pointers.h"
 
 /**
  * array_iterator - executes a function given as a parameter on
@@ -27,6 +27,6 @@ void array_iterator(int *array, size_t size, void (*action)(int))
 	for (i = 0; size > i; size--)
 	{
 		action(*array);
-		array++
+		array++;
 	}
 }
