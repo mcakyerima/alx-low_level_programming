@@ -22,9 +22,8 @@ void array_iterator(int *array, size_t size, void (*action)(int))
 		return;
 
 	/* loop through array */
-	int i;
 
-	for (i = 0; size >= i; size--)
+	while (size-- > 0)
 	{
 		action(*array);
 		array++;
