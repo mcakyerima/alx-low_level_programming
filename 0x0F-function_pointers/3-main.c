@@ -17,8 +17,8 @@
 
 int main(int __attribute__((__unused__)) argc, char *argv[])
 {
-	int a, b;
-	char *op;
+	int first_num, second_num;
+	char *opr;
 
 	if (argc != 4)
 	{
@@ -26,24 +26,24 @@ int main(int __attribute__((__unused__)) argc, char *argv[])
 		exit(98);
 	}
 
-	/*convert para to int */
-	a = atoi(argv[1]);
-	op = argv[2];
-	b = atoi(argv[3]);
+	first_num = atoi(argv[1]);
+	opr = argv[2];
+	second_num = atoi(argv[3]);
 
-	if (op[1] != '\0' || get_op_func(op) == NULL)
+	if (get_op_func(opr) == NULL || op[1] != '\0')
 	{
 		printf("Error\n");
 		exit(99);
 	}
 
-	if ((*op == '%' && b == 0) || (*op == '/' && b == 0))
+	if ((*opr == '/' && second_num == 0) ||
+	    (*opr == '%' && second_num == 0))
 	{
 		printf("Error\n");
 		exit(100);
 	}
 
-	printf("%d\n", get_op_func(op)(a, b));
+	printf("%d\n", get_op_func(opr)(num1, num2));
 
 	return (0);
 }
