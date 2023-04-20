@@ -34,11 +34,6 @@ int (*get_op_func(char *s))(int, int)
 
 	while (*(ops[i].op) != *s && ops[i].op != NULL)
 	{
-		if (*s != '+' || *s != '-' ||
-		 *s != '*' || *s != '/' || *s != '%')
-		{
-			return (NULL);
-		}
 		i++;
 	}
 	return (ops[i].f);
