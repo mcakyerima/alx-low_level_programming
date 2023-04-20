@@ -30,7 +30,7 @@ int main(int __attribute__((__unused__)) argc, char *argv[])
 	opr = argv[2];
 	second_num = atoi(argv[3]);
 
-	if (get_op_func(opr) == NULL || op[1] != '\0')
+	if (get_op_func(opr) == NULL || opr[1] != '\0')
 	{
 		printf("Error\n");
 		exit(99);
