@@ -36,8 +36,7 @@ int main(int __attribute__((__unused__)) argc, char *argv[])
 		exit(99);
 	}
 
-	if ((*opr == '/' && second_num == 0) ||
-	    (*opr == '%' && second_num == 0))
+	if ((*opr == '/' && second_num == 0) || (*opr == '%' && second_num == 0))
 	{
 		printf("Error\n");
 		exit(100);
