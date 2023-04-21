@@ -19,12 +19,12 @@
  * @type: The character representing the data type.
  * @f: A pointer to the corresponding print function.
  */
-typedef struct print_format
+typedef struct printer
 {
-	char type;
-	void (*f)(va_list);
+	char symbol;
+	void (*print)(va_list);
 
-} print_format_t;
+} printer_t;
 
 /* Function Prototypes */
 int sum_them_all(const unsigned int n, ...);

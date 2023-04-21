@@ -1,10 +1,9 @@
 /*
  * File: 3-print_all.c
- * Author: [Author Name]
+ * Author: Mohammed Abba Kaka
  * Description: This file contains a function that prints anything,
- *		based on a given format.
+ *              based on a given format.
  */
-
 
 #include "variadic_functions.h"
 #include <stdio.h>
@@ -16,7 +15,7 @@
  */
 void print_char(va_list list)
 {
-	printf("%c", va_arg(list, int));
+    printf("%c", va_arg(list, int));
 }
 
 /**
@@ -25,7 +24,7 @@ void print_char(va_list list)
  */
 void print_int(va_list list)
 {
-	printf("%d", va_arg(list, int));
+    printf("%d", va_arg(list, int));
 }
 
 /**
@@ -34,7 +33,7 @@ void print_int(va_list list)
  */
 void print_float(va_list list)
 {
-	printf("%f", va_arg(list, double));
+    printf("%f", va_arg(list, double));
 }
 
 /**
@@ -43,11 +42,11 @@ void print_float(va_list list)
  */
 void print_string(va_list list)
 {
-	char *str = va_arg(list, char *);
+    char *str = va_arg(list, char *);
 
-	if (str == NULL)
-		str = "(nil)";
-	printf("%s", str);
+    if (str == NULL)
+        str = "(nil)";
+    printf("%s", str);
 }
 
 /**
@@ -57,36 +56,37 @@ void print_string(va_list list)
  */
 void print_all(const char * const format, ...)
 {
-	va_list list;
-	char *separator = "";
-	unsigned int i = 0, j;
-	print_t p[] = {
-		{'c', print_char},
-		{'i', print_int},
-		{'f', print_float},
-		{'s', print_string},
-		{'\0', NULL}
-	};
+    va_list list;
+    char *separator = "";
+    unsigned int i = 0, j;
+    print_format_t p[] = {
+        {'c', print_char},
+        {'i', print_int},
+        {'f', print_float},
+        {'s', print_string},
+        {'\0', NULL}
+    };
 
-	va_start(list, format);
+    va_start(list, format);
 
-	while (format && format[i])
-	{
-		j = 0;
-		while (p[j].type)
-		{
-			if (format[i] == p[j].type)
-			{
-				printf("%s", separator);
-				p[j].f(list);
-				separator = ", ";
-				break;
-			}
-			j++;
-		}
-		i++;
-	}
+    while (format && format[i])
+    {
+        j = 0;
+        while (p[j].type)
+        {
+            if (format[i] == p[j].type)
+            {
+                printf("%s", separator);
+                p[j].f(list);
+                separator = ", ";
+                break;
+            }
+            j++;
+        }
+        i++;
+    }
 
-	printf("\n");
-	va_end(list);
+    printf("\n");
+    va_end(list);
 }
+
