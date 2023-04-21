@@ -24,11 +24,44 @@ To use any of these functions, simply include `variadic_functions.h` in your C f
 
 ## How to Compile
 
-To compile any of the provided C files, run the following command:
+To compile and run any of the provided C files with example parameters, follow these steps:
 
-```bash
-gcc -Wall -Werror -Wextra -pedantic <filename>.c
-```
+1. Navigate to the directory where the C file is located using the terminal.
+
+2. Compile the file using the following command:
+
+    ```bash
+    gcc -Wall -Werror -Wextra -pedantic <filename>.c -o <output_filename>
+    ```
+
+    Replace `<filename>` with the name of the C file you want to compile, and `<output_filename>` with the desired name of the executable file.
+
+3. Run the executable file with example parameters by typing the following command:
+
+    ```bash
+    ./<output_filename> <param1> <param2> ...
+    ```
+
+    Replace `<output_filename>` with the name of the executable file you just compiled, and `<param1>`, `<param2>`, etc. with example parameters that you want to pass to the function.
+
+For example, to compile and run `0-sum_them_all.c` with parameters `1`, `2`, and `3`, you would do the following:
+
+1. Navigate to the directory where `0-sum_them_all.c` is located using the terminal.
+
+2. Compile the file using the following command:
+
+    ```bash
+    gcc -Wall -Werror -Wextra -pedantic 0-sum_them_all.c -o sum_them_all
+    ```
+
+3. Run the executable file with example parameters by typing the following command:
+
+    ```bash
+    ./sum_them_all 1 2 3
+    ```
+
+This will execute the `sum_them_all` function and return the sum of `1`, `2`, and `3`.
+
 
 
 ## What I Learned
