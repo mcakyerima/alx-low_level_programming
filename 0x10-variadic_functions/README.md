@@ -36,7 +36,7 @@ To compile and run any of the provided C files with example parameters, follow t
 
     Replace `<filename>` with the name of the C file you want to compile, and `<output_filename>` with the desired name of the executable file.
 
-3. Run the executable file with example parameters by typing the following command:
+3. Run the executable file with the example parameters by typing the following command:
 
     ```bash
     ./<output_filename> <param1> <param2> ...
