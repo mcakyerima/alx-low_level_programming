@@ -5,7 +5,7 @@
 
 
 section .data
-    message db 'Hello, Holberton', 0xA
+    message db 'Hello, Holberton', 0xA, 0
 
 section .text
     global main
@@ -17,17 +17,13 @@ main:
     mov rbp, rsp
     sub rsp, 16
 
-    mov rsi, message
-    mov edi, fmt
-    xor eax, eax
+    mov rdi, message
+    mov rax, 0
     call printf
 
     add rsp, 16
     mov rsp, rbp
     pop rbp
-
     xor eax, eax
     ret
 
-fmt:
-    db '%s', 0xA, 0
