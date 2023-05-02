@@ -1,114 +1,132 @@
-/**
- * main - Entry point. Multiplies two positive numbers.
- *
- * @argc: The number of arguments passed to the program
- * @argv: An array of strings containing the arguments passed to the program
- *
- * Return: 0 on success, or 98 on failure
- *
- * Author: Mohammed Abba
+/*
  * File: 101-mul.c
+ * Author: Mohammed Abba
+ *
+ * Description:
+ * This program multiplies two positive numbers.
  */
 
 #include "main.h"
 #include <stdlib.h>
-#include <ctype.h>
-#include <string.h>
 
-int main(int argc, char **argv)
+/**
+ * _isdigit - checks if a character is a digit
+ * @c: character to check
+ * Return: 1 if c is a digit, 0 otherwise
+ */
+int _isdigit(char c)
 {
-	/* Check if the correct number of arguments is provided */
-	/** and if they are positive numbers */
-	if (argc != 3 || !is_positive_number(argv[1]) || !is_positive_number(argv[2]))
-	{
-		printf("Error\n");
-		return (98);
-	}
-
-	/* Call the multiply function with the two numbers */
-	multiply(argv[1], argv[2]);
-
-	return (0);
+        return (c >= '0' && c <= '9');
 }
 
 /**
- * multiply - Multiplies two positive numbers.
- *
- * @num1: The first number to multiply.
- * @num2: The second number to multiply.
+ * _strlen - gets the length of a string
+ * @s: string to get length of
+ * Return: length of s
+ */
+int _strlen(char *s)
+{
+        int len = 0;
+
+        while (*s)
+        {
+                len++;
+                s++;
+        }
+
+        return (len);
+}
+
+/**
+ * print_error - prints "Error" followed by a newline to stderr
+ * Return: void
+ */
+void print_error(void)
+{
+        int i;
+        char *error = "Error\n";
+
+        for (i = 0; i < _strlen(error); i++)
+        {
+                _putchar(error[i]);
+        }
+
+        exit(98);
+}
+
+/**
+ * multiply - multiplies two numbers and prints the result
+ * @num1: first number to multiply
+ * @num2: second number to multiply
+ * Return: void
  */
 void multiply(char *num1, char *num2)
 {
-	/* Compute the length of the two numbers */
-	int len1 = _strlen(num1);
-	int len2 = _strlen(num2);
+        int len1, len2, i, j, carry, n1, n2, res_len;
+        int *result;
 
-	/* Allocate memory to hold the result of the multiplication */
-	int *result, i, j, k = 0;
+        len1 = _strlen(num1);
+        len2 = _strlen(num2);
+        res_len = len1 + len2;
+        result = malloc(sizeof(int) * res_len);
+        if (!result)
+                exit(98);
 
-	result = malloc((len1 + len2) * sizeof(int));
-	if (result == NULL)
-	{
-		printf("Error\n");
-		exit(98);
-	}
+        for (i = 0; i < res_len; i++)
+                result[i] = 0;
 
-	/* Initialize the result to 0 */
-	for (i = 0; i < len1 + len2; i++)
-		result[i] = 0;
+        for (i = len1 - 1; i >= 0; i--)
+        {
+                carry = 0;
+                n1 = num1[i] - '0';
+                for (j = len2 - 1; j >= 0; j--)
+                {
+                        n2 = num2[j] - '0';
+                        carry += result[i + j + 1] + (n1 * n2);
+                        result[i + j + 1] = carry % 10;
+                        carry /= 10;
+                }
+                if (carry)
+                        result[i + j + 1] += carry;
+        }
 
-	/* Multiply each digit of the first number with each digit of the second number */
-	for (i = len1 - 1; i >= 0; i--)
-	{
-		/* Initialize the carry to 0 and compute the current digit of the first number */
-		int carry = 0;
-		int n1 = num1[i] - '0';
+        i = 0;
+        while (i < res_len - 1 && result[i] == 0)
+                i++;
+        for (; i < res_len; i++)
+                _putchar(result[i] + '0');
 
-		/* Multiply the current digit of the first number with each digit of the second number */
-		for (j = len2 - 1; j >= 0; j--)
-		{
-			/* Compute the current digit of the second number and the current sum */
-			int n2 = num2[j] - '0';
-			int sum = n1 * n2 + result[i + j + 1] + carry;
+        _putchar('\n');
 
-			/* Update the carry and the result */
-			carry = sum / 10;
-			result[i + j + 1] = sum % 10;
-		}
-
-		/* If there is a carry left, add it to the previous digit */
-		if (carry > 0)
-			result[i + j + 1] += carry;
-	}
-
-	/* Find the first non-zero digit of the result */
-	i = 0;
-	while (result[i] == 0 && i < len1 + len2 - 1)
-		i++;
-
-	/* Free the memory used by the result */
-	free(result);
+        free(result);
 }
 
 /**
- * is_positive_number - Checks if a string represents a positive number.
- *
- * @s: The string to check.
- *
- * Return: 1 if the string represents a positive number, 0 otherwise.
+ * main - multiplies two numbers passed as arguments
+ * @argc: number of arguments
+ * @argv: array of argument strings
+ * Return: 0 on success, 98 on failure
  */
-int is_positive_number(char *s)
+int main(int argc, char **argv)
 {
-	/* Check if the string is empty */
-	if (*s == '\0')
-		return (0);
+        int i;
 
-	/* Check if all characters are digits */
-	while (*s != '\0')
-	{
-		if (!isdigit(*s))
-			return (0);
-		s++;
-	}
-	return (1);
+        if (argc != 3)
+                print_error();
+
+        for (i = 0; argv[1][i]; i++)
+        {
+                if (!_isdigit(argv[1][i]))
+                        print_error();
+        }
+
+        for (i = 0; argv[2][i]; i++)
+        {
+                if (!_isdigit(argv[2][i]))
+                        print_error();
+        }
+
+        multiply(argv[1], argv[2]);
+
+        return (0);
 }
