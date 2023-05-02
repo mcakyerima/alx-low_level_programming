@@ -30,4 +30,4 @@ typedef struct listint_s
 size_t print_listint(const listint_t *h);
 
 
-#endif LISTS_H /*END OF LISTS_h*/
+#endif /*END OF LISTS_h*/
