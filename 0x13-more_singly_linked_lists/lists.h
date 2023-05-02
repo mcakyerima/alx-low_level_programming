@@ -8,6 +8,8 @@
  *       and types written in the 0x13-more_singly_linked_lists directory.
  */
 
+#include <stdlib.h>
+
 /**
  * struct listint_s - singly linked list
  * @n: integer
