@@ -9,6 +9,8 @@
  */
 
 #include <stdlib.h>
+#include <stdio.h>
+
 
 /**
  * struct listint_s - singly linked list
@@ -19,6 +21,7 @@
  *
  */
 
+/* Structure definition of listint_t */
 
 typedef struct listint_s
 {
@@ -35,5 +38,6 @@ listint_t *add_nodeint(listint_t **head, const int n);
 listint_t *add_nodeint_end(listint_t **head, const int n);
 void free_listint(listint_t *head);
 void free_listint2(listint_t **head);
+int pop_listint(listint_t **head);
 
 #endif /*END OF LISTS_h*/
