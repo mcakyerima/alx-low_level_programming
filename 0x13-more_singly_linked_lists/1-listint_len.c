@@ -1,4 +1,5 @@
 #include "lists.h"
+#include <stddef.h>
 
 /*
  * File_name: 1-listint_len.c
@@ -17,12 +18,10 @@ size_t listint_len(const listint_t *h)
 {
 	size_t elements = 0;
 
-	const listint_t *current = h;
-
-	while (current)
+	while (h != NULL)
 	{
 		elements++;
-		current = current->next;
+		h = h->next;
 	}
 
 	return (elements);
