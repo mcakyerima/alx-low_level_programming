@@ -1,5 +1,4 @@
 #include "lists.h"
-#include <stddef.h>
 
 /*
  * File_name: 1-listint_len.c
