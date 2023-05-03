@@ -1,4 +1,4 @@
-📚 More Singly Linked Lists in C 🖥️
+## 📚 More Singly Linked Lists in C 🖥️
 
 Welcome to a comprehensive guide on Singly Linked Lists in C. This guide provides you with a thorough understanding of singly linked lists and their implementation in C.
 
