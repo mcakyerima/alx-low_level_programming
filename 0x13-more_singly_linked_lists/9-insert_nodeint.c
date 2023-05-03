@@ -27,7 +27,6 @@ listint_t *insert_nodeint_at_index(listint_t **head, unsigned int idx, int n)
 		return (NULL);
 
 	new_node->n = n; /* set data for new node */
-	temp_node = *head; /* copy head to temp_node */
 
 	if (idx == 0) /* if inserting at beginning */
 	{
