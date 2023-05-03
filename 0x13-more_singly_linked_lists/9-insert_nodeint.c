@@ -27,6 +27,7 @@ listint_t *insert_nodeint_at_index(listint_t **head, unsigned int idx, int n)
 		return (NULL);
 
 	new_node->n = n; /* set data for new node */
+	temp_node - *head;
 
 	if (idx == 0) /* if inserting at beginning */
 	{
@@ -35,7 +36,7 @@ listint_t *insert_nodeint_at_index(listint_t **head, unsigned int idx, int n)
 		return (new_node);
 	}
 
-	while (temp_node && count < idx - 1) /* loop throgh d list*/
+	while (temp_node && count < (idx - 1)) /* loop throgh d list*/
 	{
 		temp_node = temp_node->next;
 		count++;
