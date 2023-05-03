@@ -10,13 +10,13 @@ Singly linked lists are a data structure that stores data sequentially in memory
 
 This guide provides an implementation of singly linked lists in C, including the following types and functions:
 
-### Types
+## Types
 
 Type | Description
 ---- | -----------
 listint_t | A struct representing a singly linked list. It contains the following fields: <br> - int n: The integer data stored in the node. <br> - struct listint_s *next: A pointer to the next node in the list.
 
-### Functions
+## Functions
 
 Function | Description
 -------- | -----------
