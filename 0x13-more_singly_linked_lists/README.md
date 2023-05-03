@@ -1,4 +1,4 @@
-## 📚 More Singly Linked Lists in C 🖥️
+# 📚 More Singly Linked Lists in C 🖥️
 
 Welcome to a comprehensive guide on Singly Linked Lists in C. This guide provides you with a thorough understanding of singly linked lists and their implementation in C.
 
@@ -49,4 +49,4 @@ gcc -Wall -Werror -Wextra -pedantic *.c -o singly_linked_lists
 ```
 
 ## Author
-- (Mohammed Ak Yerima)[www.com]
+- [Mohammed Ak Yerima](https://www.linkedin.com/in/mohammed-abba-kaka-a69144195/)
