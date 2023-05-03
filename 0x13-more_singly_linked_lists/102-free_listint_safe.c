@@ -58,42 +58,42 @@ size_t looped_listint_count(listint_t *head)
 /**
  * free_listint_safe - Frees a listint_t list safely (i.e.
  *                     can free lists containing loops)
- * @head: A pointer to the address of
+ * @h: A pointer to the address of
  *        the head of the listint_t list.
  *
  * Return: The size of the list that was freed.
  *
  * Description: The function sets the head to NULL.
  */
-size_t free_listint_safe(listint_t **head)
+size_t free_listint_safe(listint_t **h)
 {
 	listint_t *temp;
 	size_t count, index;
 
-	count = looped_listint_count(*head);
+	count = looped_listint_count(*h);
 
 	if (count == 0)
 	{
-		for (; head != NULL && *head != NULL; count++)
+		for (; h != NULL && *h != NULL; count++)
 		{
-			temp = (*head)->next;
-			free(*head);
-			*head = temp;
+			temp = (*h)->next;
+			free(*h);
+			*h = temp;
 		}
 	}
 	else
 	{
 		for (index = 0; index < count; index++)
 		{
-			temp = (*head)->next;
-			free(*head);
-			*head = temp;
+			temp = (*h)->next;
+			free(*h);
+			*h = temp;
 		}
 
-		*head = NULL;
+		*h = NULL;
 	}
 
-	head = NULL;
+	h = NULL;
 
 	return (count);
 }
