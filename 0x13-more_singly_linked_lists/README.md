@@ -1,6 +1,6 @@
 # 📚 More Singly Linked Lists in C 🖥️
 
-Welcome to a comprehensive guide on Singly Linked Lists in C. This guide provides you with a thorough understanding of singly linked lists and their implementation in C.
+This project provides a basic implementation of singly linked lists in C, and demonstrates when and why to use linked lists instead of arrays. The following files and types are included:
 
 ## Introduction 📝
 
