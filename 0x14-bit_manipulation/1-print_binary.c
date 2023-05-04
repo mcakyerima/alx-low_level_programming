@@ -12,22 +12,30 @@
  *
  * Return: void
  */
+
 void print_binary(unsigned long int n)
 {
 	unsigned long int mask = 1;
 	int shift_count = 0;
+
+	if (n == 0)
+	{
+		_putchar('0');
+		return;
+	}
 
 	while ((mask << 1) <= n)
 	{
 		mask = (mask << 1) | 1;
 		shift_count++;
 	}
-	while (shift_count >= 0)
+
+	while (mask > 0)
 	{
-		if (n & (1 << shift_count))
+		if (n & mask)
 			_putchar('1');
 		else
 			_putchar('0');
-		shift_count--;
+		mask >>= 1;
 	}
 }
