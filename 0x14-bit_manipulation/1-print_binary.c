@@ -16,19 +16,15 @@
 void print_binary(unsigned long int n)
 {
 	unsigned long int mask = 1;
-	int shift_count = 0;
+	unsigned long int temp = n;
 
-	if (n == 0)
+	while (temp > 0)
 	{
-		_putchar('0');
-		return;
+		mask <<= 1;
+		temp >>= 1;
 	}
 
-	while ((mask << 1) <= n)
-	{
-		mask = (mask << 1) | 1;
-		shift_count++;
-	}
+	mask >>= 1;
 
 	while (mask > 0)
 	{
@@ -36,6 +32,7 @@ void print_binary(unsigned long int n)
 			_putchar('1');
 		else
 			_putchar('0');
+
 		mask >>= 1;
 	}
 }
