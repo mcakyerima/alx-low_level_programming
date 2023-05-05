@@ -7,31 +7,28 @@
 #include "main.h"
 
 /**
- * print_binary - prints the binary representation of an unsigned long int
- * @n: unsigned long int to convert
+ * print_binary - prints the binary representation of a number
+ * @n: unsigned long integer
  *
  * Return: void
  */
+
 void print_binary(unsigned long int n)
 {
-	int i = 0, len = 0;
-	unsigned long int mask = 1;
+	unsigned long int num_copy = n, mask = 1;
+	int num_len = 0;
 
-	while (mask <= n)
+	while (num_copy > 0)
 	{
-		len++;
-		mask <<= 1;
+		num_len++;
+		num_copy >>= 1;
 	}
+	num_len -= 1;
 
-	if (!len)
-	{
-		_putchar('0');
-		return;
-	}
+	if (num_len > 0) /* create mask based on length of num */
+		mask = mask << num_len;
 
-	mask >>= 1;
-
-	for (i = 0; i < len; i++)
+	while (mask > 0) /* match each rightmost bit to see if 1 or 0 */
 	{
 		if (n & mask)
 			_putchar('1');
@@ -40,5 +37,4 @@ void print_binary(unsigned long int n)
 
 		mask >>= 1;
 	}
-
 }
