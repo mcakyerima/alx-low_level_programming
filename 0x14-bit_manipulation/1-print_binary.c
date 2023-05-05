@@ -15,16 +15,15 @@
 
 void print_binary(unsigned long int n)
 {
-	unsigned long int mask = 1;
-	int i, len = sizeof(n) * 8;
+	unsigned long int mask = 1, len = sizeof(n) * 8;
 
-	for (i = len - 1; i >= 0; i--)
+	while (len--)
 	{
-		if (n & (mask << i))
-			_putchar('1');
-		else if (i == 0)
-			_putchar('0');
-		else
-			continue;
+		if (n & (mask << len))
+			break;
+	}
+	while (len--)
+	{
+		(n & (mask << len)) ? _putchar('1') : _putchar('0');
 	}
 }
