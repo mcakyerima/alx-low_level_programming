@@ -7,30 +7,38 @@
 #include "main.h"
 
 /**
- * print_binary - prints the binary representation of a number
- * @n: unsigned long integer
+ * print_binary - prints the binary representation of an unsigned long int
+ * @n: unsigned long int to convert
  *
  * Return: void
  */
-
 void print_binary(unsigned long int n)
 {
-	int len;
+	int i = 0, len = 0;
+	unsigned long int mask = 1;
 
-	if (n == 0)
+	while (mask <= n)
+	{
+		len++;
+		mask <<= 1;
+	}
+
+	if (!len)
 	{
 		_putchar('0');
 		return;
 	}
 
-	for (len = 0; (n >> len) != 0; len++)
-		;
+	mask >>= 1;
 
-	for (len--; len >= 0; len--)
+	for (i = 0; i < len; i++)
 	{
-		if ((n >> len) & 1)
+		if (n & mask)
 			_putchar('1');
 		else
 			_putchar('0');
+
+		mask >>= 1;
 	}
+
 }
