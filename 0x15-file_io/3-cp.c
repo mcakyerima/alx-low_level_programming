@@ -102,20 +102,25 @@ void copy_file_contents(int fd_from, int fd_to)
 
 int main(int argc, char **argv)
 {
+	const char *file_from;
+	const char *file_to;
+	int fd_from;
+	int fd_to;
+
 	if (argc != 3)
 	{
 		print_usage(argv[0]);
 		exit(97);
 	}
 
-	const char *file_from = argv[1];
-	const char *file_to = argv[2];
+	file_from = argv[1];
+	file_to = argv[2];
 
     /* Open source file for reading */
-	int fd_from = open_source_file(file_from);
+	fd_from = open_source_file(file_from);
 
     /* Open destination file for writing (truncate if already exists) */
-	int fd_to = open_dest_file(file_to);
+	fd_to = open_dest_file(file_to);
 
     /* Copy file contents */
 	copy_file_contents(fd_from, fd_to);
