@@ -6,7 +6,7 @@
 
 #include "main.h"
 
-#define BUF_SIZE 1024
+#define BUF_SIZE 2024
 
 void error(char *msg, int code);
 void copy_file_contents(int fd_from, int fd_to, char *file_from,
