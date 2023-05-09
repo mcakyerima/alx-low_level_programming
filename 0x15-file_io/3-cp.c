@@ -80,14 +80,24 @@ void copy_file_contents(int fd_from, int fd_to)
 
 		if (nwritten == -1 || nwritten != nread)
 		{
-			dprintf(STDERR_FILENO, "Error: Can't write to file\n");
+			dprintf(STDERR_FILENO, "Error: Can't write to %d\n", fd_to);
 			exit(99);
 		}
 	}
 	if (nread == -1)
 	{
-		dprintf(STDERR_FILENO, "Error: Can't read from file\n");
+		dprintf(STDERR_FILENO, "Error: Can't read from %d\n", fd_from);
 		exit(98);
+	}
+	if (close(fd_from) == -1)
+	{
+		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", fd_from);
+		exit(100);
+	}
+	if (close(fd_to) == -1)
+	{
+		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", fd_to);
+		exit(100);
 	}
 }
 
