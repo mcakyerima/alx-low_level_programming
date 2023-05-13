@@ -171,9 +171,9 @@ void print_os_abi(unsigned char *e_ident)
 		osabi_str = "Standalone App";
 		break;
 	default:
-		printf("OS/ABI:                            <unknown: %x>\n",
+		printf("  OS/ABI:                            <unknown: %x>\n",
 		e_ident[EI_OSABI]);
-		break;
+		return;
 	}
 	printf("  OS/ABI:                            %s\n", osabi_str);
 }
