@@ -65,8 +65,12 @@ void print_magic_number(unsigned char *e_ident)
 	for (i = 0; i < EI_NIDENT; i++)
 	{
 		printf("%02x", e_ident[i]);
+
+		if (i == EI_NIDENT - 1)
+			printf("\n");
+		else
+			printf(" ");
 	}
-	printf("\n");
 }
 
 /**
@@ -293,7 +297,7 @@ int main(int argc, char **argv)
 	else
 	{
 		fprintf(stderr, "Error: Invalid ELF class in file %s\n", argv[1]);
-		exit(99);
+		exit(98);
 	}
 
 	return (EXIT_SUCCESS);
