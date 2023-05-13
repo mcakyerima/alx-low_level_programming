@@ -19,7 +19,7 @@
  * Return: 0 on success, -1 on failure
  */
 
-int readelf(const char *filename, Elf32_Ehdr *ehdr)
+int readelf(const char *filename, Elf64_Ehdr *ehdr)
 {
 	int fd;
 
@@ -78,7 +78,7 @@ void print_file_class(unsigned char *e_ident)
 	switch (e_ident[EI_CLASS])
 	{
 	case ELFCLASSNONE:
-		printf("  Class:\n");
+		printf("  Class:                             none\n");
 		break;
 	case ELFCLASS32:
 		printf("  Class:                             ELF32\n");
@@ -217,8 +217,8 @@ void print_file_type(Elf32_Half e_type)
 		type = "CORE (Core file)";
 		break;
 	default:
-		printf("<unknown: %x>\n", e_type);
-		break;
+		printf("  Type:                              <unknown: %x>\n", e_type);
+		return;
 	}
 	printf("  Type:                              %s\n", type);
 }
@@ -228,10 +228,22 @@ void print_file_type(Elf32_Half e_type)
  * @e_entry: The entry point address
  */
 
-void print_entry_point(Elf32_Addr e_entry)
+void print_entry_point(Elf64_Addr e_entry, unsigned char *e_ident)
 {
-	printf("  Entry point address:               %p\n",
-		(void *)(uintptr_t)e_entry);
+	printf("  Entry point address:               ");
+
+	if (e_ident[EI_CLASS] == ELFCLASS32)
+	{
+		printf("%#x\n", (unsigned int)e_entry);
+	}
+	else if (e_ident[EI_CLASS] == ELFCLASS64)
+	{
+		printf("%#lx\n", e_entry);
+	}
+	else
+	{
+		printf("unknown ELF class\n");
+	}
 }
 
 
@@ -249,7 +261,7 @@ void print_entry_point(Elf32_Addr e_entry)
 
 int main(int argc, char **argv)
 {
-	Elf32_Ehdr ehdr;
+	Elf64_Ehdr ehdr;
 
 	if (argc != 2)
 	{
@@ -273,7 +285,16 @@ int main(int argc, char **argv)
 	print_os_abi(ehdr.e_ident);
 	print_abi_version(ehdr.e_ident);
 	print_file_type(ehdr.e_type);
-	print_entry_point(ehdr.e_entry);
+
+	if (ehdr.e_ident[EI_CLASS] == ELFCLASS32)
+		print_entry_point((Elf32_Addr)ehdr.e_entry, ehdr.e_ident);
+	else if (ehdr.e_ident[EI_CLASS] == ELFCLASS64)
+		print_entry_point((Elf64_Addr)ehdr.e_entry, ehdr.e_ident);
+	else
+	{
+		fprintf(stderr, "Error: Invalid ELF class in file %s\n", argv[1]);
+		exit(99);
+	}
 
 	return (EXIT_SUCCESS);
 
