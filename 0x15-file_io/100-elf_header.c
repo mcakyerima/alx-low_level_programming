@@ -9,7 +9,7 @@
 #include <elf.h>
 #include <fcntl.h>
 #include <unistd.h>
-
+#include <errno.h>
 
 /**
  * readelf - Reads an ELF header from an ELF file
@@ -24,24 +24,30 @@ int readelf(const char *filename, Elf32_Ehdr *ehdr)
 	int fd;
 
 	fd = open(filename, O_RDONLY);
+
 	if (fd == -1)
 	{
-		perror("open");
-		return (-1);
+		fprintf(stderr, "Error: Unable to open file '%s': %s\n", filename,
+		strerror(errno));
+		return (98);
 	}
 
 	if (read(fd, ehdr, sizeof(*ehdr)) != sizeof(*ehdr))
 	{
-		perror("read");
+		fprintf(stderr, "Error: Unable to read ELF header from file '%s': %s\n",
+		filename, strerror(errno));
+
 		close(fd);
-		return (-1);
+
+		return (98);
+	}
+	if (ehdr->e_ident[EI_MAG0] != ELFMAG0 || ehdr->e_ident[EI_MAG1] != ELFMAG1 ||
+	ehdr->e_ident[EI_MAG2] != ELFMAG2 || ehdr->e_ident[EI_MAG3] != ELFMAG3)
+	{
+		fprintf(stderr, "Error: File '%s' is not an ELF file\n", filename);
+		return (98);
 	}
 
-	if (close(fd) == -1)
-	{
-		perror("close");
-		return (-1);
-	}
 
 	return (0);
 }
@@ -223,7 +229,8 @@ void print_file_type(Elf32_Half e_type)
 
 void print_entry_point(Elf32_Addr e_entry)
 {
-	printf("  Entry point address:              %p\n", (void*)(uintptr_t)e_entry);
+	printf("  Entry point address:              %p\n",
+		(void *)(uintptr_t)e_entry);
 }
 
 
@@ -252,7 +259,9 @@ int main(int argc, char **argv)
 	if (readelf(argv[1], &ehdr) != 0)
 	{
 		fprintf(stderr, "Error: Failed to read ELF header from file %s\n", argv[1]);
-		return (EXIT_FAILURE);
+		fprintf(stderr, "%s\n", strerror(errno));
+
+		exit(98);
 	}
 
 	printf("ELF Header:\n");
