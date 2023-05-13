@@ -223,7 +223,7 @@ void print_file_type(Elf32_Half e_type)
 
 void print_entry_point(Elf32_Addr e_entry)
 {
-	printf("  Entry point address:              0x%x\n", "", e_entry);
+	printf("  Entry point address:              %p\n", (void*)(uintptr_t)e_entry);
 }
 
 
