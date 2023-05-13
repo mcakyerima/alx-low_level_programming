@@ -81,13 +81,13 @@ void print_file_class(unsigned char *e_ident)
 		printf("  Class:\n");
 		break;
 	case ELFCLASS32:
-		printf("  Class:                            ELF32\n");
+		printf("  Class:                             ELF32\n");
 		break;
 	case ELFCLASS64:
-		printf("  Class:                            ELF64\n");
+		printf("  Class:                             ELF64\n");
 		break;
 	default:
-		printf("  Class:                            <unknown: %x>\n",
+		printf("  Class:                             <unknown: %x>\n",
 			e_ident[EI_CLASS]);
 		break;
 	}
@@ -99,7 +99,7 @@ void print_file_class(unsigned char *e_ident)
  */
 void print_data_encoding(unsigned char *e_ident)
 {
-	printf("  Data:                             ");
+	printf("  Data:                              ");
 
 	switch (e_ident[EI_DATA])
 	{
@@ -125,7 +125,7 @@ void print_data_encoding(unsigned char *e_ident)
 
 void print_elf_version(unsigned char *e_ident)
 {
-	printf("  Version:                          %d (current)\n",
+	printf("  Version:                           %d (current)\n",
 		e_ident[EI_VERSION]);
 }
 
@@ -174,7 +174,7 @@ void print_os_abi(unsigned char *e_ident)
 		osabi_str = "Unknown";
 		break;
 	}
-	printf("  OS/ABI:                           %s\n", osabi_str);
+	printf("  OS/ABI:                            %s\n", osabi_str);
 }
 
 
@@ -185,7 +185,7 @@ void print_os_abi(unsigned char *e_ident)
 
 void print_abi_version(unsigned char *e_ident)
 {
-	printf("  ABI Version:                      %d\n", e_ident[EI_ABIVERSION]);
+	printf("  ABI Version:                       %d\n", e_ident[EI_ABIVERSION]);
 }
 
 /**
@@ -219,7 +219,7 @@ void print_file_type(Elf32_Half e_type)
 		printf("<unknown: %x>\n", e_type);
 		break;
 	}
-	printf("  Type:                             %s\n", type);
+	printf("  Type:                              %s\n", type);
 }
 
 /**
@@ -229,7 +229,7 @@ void print_file_type(Elf32_Half e_type)
 
 void print_entry_point(Elf32_Addr e_entry)
 {
-	printf("  Entry point address:              %p\n",
+	printf("  Entry point address:               %p\n",
 		(void *)(uintptr_t)e_entry);
 }
 
