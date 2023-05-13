@@ -64,7 +64,7 @@ void print_magic_number(unsigned char *e_ident)
 	printf("  Magic:   ");
 	for (i = 0; i < EI_NIDENT; i++)
 	{
-		printf("%02x ", e_ident[i]);
+		printf("%02x", e_ident[i]);
 	}
 	printf("\n");
 }
@@ -171,7 +171,8 @@ void print_os_abi(unsigned char *e_ident)
 		osabi_str = "Standalone App";
 		break;
 	default:
-		osabi_str = "Unknown";
+		printf("OS/ABI:                            <unknown: %x>\n",
+		e_ident[EI_OSABI]);
 		break;
 	}
 	printf("  OS/ABI:                            %s\n", osabi_str);
