@@ -144,7 +144,7 @@ void print_os_abi(unsigned char *e_ident)
 
 	switch (e_ident[EI_OSABI])
 	{
-	case ELFOSABI_SYSV:
+	case ELFOSABI_NONE:
 		osabi_str = "UNIX - System V";
 		break;
 	case ELFOSABI_HPUX:
