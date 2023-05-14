@@ -230,6 +230,7 @@ void print_file_type(Elf32_Half e_type)
 /**
  * print_entry_point - Prints the ELF entry point address
  * @e_entry: The entry point address
+ * @e_ident: Pointer to the ELF identification bytes.
  */
 
 void print_entry_point(Elf64_Addr e_entry, unsigned char *e_ident)
