@@ -49,6 +49,6 @@ int main(int argc, char *argv[])
 
 	password[6] = '\0';
 	printf("%s\n", password);
-	return 0;
+	return (0);
 }
 
