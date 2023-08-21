@@ -4,7 +4,7 @@
 gcc *.c -c -fPIC
 
 # Create libdynamic.so
-gcc *.o -shared -o libll.so
+gcc *.o -shared -o liball.so
 
 # Clean up temporary object files
 rm *.o
