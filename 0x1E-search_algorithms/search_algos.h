@@ -4,6 +4,7 @@
 #include <stddef.h>
 #include <stddef.h>
 #include <stdio.h>
+#include <math.h>
 
 /**
  * struct listint_s - Struct for a sigly linked list
@@ -22,4 +23,6 @@ typedef struct listint_s
 size_t print_listint(const listint_t *h);
 int linear_search(int *array, size_t size, int value);
 int binary_search(int *array, size_t size, int value);
+int jump_search(int *array, size_t size, int value);
+
 #endif /* SEARCH_ALGOS_H */
