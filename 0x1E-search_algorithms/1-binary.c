@@ -12,8 +12,8 @@
  * @left: the left indes of the main array
  * @right: the right indes of the main array
  */
- void print_array(int *array, size_t left, size_t right)
- {
+void print_array(int *array, size_t left, size_t right)
+{
 	size_t i = 0;
 
 	printf("Searching in array: ");
@@ -24,7 +24,7 @@
 		else
 			printf("%d\n", array[i]);
 	}
- }
+}
 
 
 /**
@@ -56,10 +56,11 @@ int binary_search(int *array, size_t size, int value)
 		{
 			return (mid);
 		}
-		if( array[mid] < value)
+		if (array[mid] < value)
 		{
 			low = mid + 1;
-		}else {
+		} else
+		{
 			high = mid - 1;
 		}
 	}
