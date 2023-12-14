@@ -50,3 +50,6 @@ Welcome to the search algorithms repository in the alx-low_level_programming pro
 
 - Each algorithm has a dedicated directory containing the C file and related files.
 - Test files are provided in the [Test_files](./Test_files) directory for validating the algorithms.
+
+## Author
+- Mohammed Ak Yerima
